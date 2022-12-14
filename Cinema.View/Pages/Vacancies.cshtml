@@ -1,0 +1,50 @@
+﻿@page
+@model Cinema.View.Pages.VacanciesModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <h3 style="text-align: center">Список <span>вакансий</span></h3>
+                <div style="margin-left: 43%;" class="wrapper">
+                    <a href="/VacancyForm/" class="link2">
+                        <span>
+                            <span>Добавить</span>
+                        </span>
+                    </a>
+                </div>
+                @if (Model.Vacancies.Count != default)
+                {
+                    <ul class="list">
+                        @foreach (var vacancy in Model.Vacancies)
+                        {
+                            <li>
+                                <a>@vacancy.Name</a><br/>
+                                @vacancy.Description
+                                <div>
+                                    <a href="/VacancyForm/?id=@vacancy.Id" class="link2" style="margin-right: 20px">
+                                        <span>
+                                            <span class="button">Изменить</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="/Vacancies/?handler=Delete&id=@vacancy.Id" class="link2">
+                                        <span>
+                                            <span class="button">Удалить</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>

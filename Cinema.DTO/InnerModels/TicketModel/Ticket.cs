@@ -16,8 +16,14 @@ namespace Cinema.DTO.InnerModels.TicketModel
         public virtual MovieShow? MovieShow { get; set; }
 
         public virtual CinemaAddress Cinema { get; set; } = null!;
+        
+        [Column(SeatColumnName, TypeName = NumericColumnType)]
+        public int? Seat { get; set; }
+        
+        [Column(RowColumnName, TypeName = NumericColumnType)]
+        public int? Row { get; set; }
 
-        public virtual CinemaHallSeat Place { get; set; } = null!;
+        public virtual CinemaHallSeat? Place { get; set; }
         
         public virtual Account Buyer { get; set; } = null!;
     }

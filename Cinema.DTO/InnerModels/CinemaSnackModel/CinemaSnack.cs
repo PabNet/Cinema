@@ -9,15 +9,10 @@ namespace Cinema.DTO.InnerModels.CinemaSnackModel
     [Table(TableName)]
     public partial class CinemaSnack
     {
-        [Column(NameColumnName, TypeName = StringColumnType)]
-        public string Name { get; set; } = null!;
-
         public virtual List<CinemaAddress>? Cinemas { get; set; }
         
         [Column(PriceColumnName, TypeName = FractionalColumnType)]
         public double? Price { get; set; }
-
-        [Column(DescriptionColumnName, TypeName = StringColumnType)]
-        public string? Description { get; set; }
+        
     }
 }

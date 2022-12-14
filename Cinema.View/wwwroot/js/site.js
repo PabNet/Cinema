@@ -1,45 +1,58 @@
 ﻿$(document).ready(()=>
 {
-    activeClassName = "active";
-    let idMenuItem;
+    
+    let idMenuItem = commonItemsMap.get(document.title);
+    
+    fillValuesFromMap(commonItemsMap, fillMenuItems);
+    fillValuesFromMap(commonRefsMap, fillItemRefs);
+    
+    if(idMenuItem === undefined) {
+        if(userItemsMap.get(document.title) !== undefined) {
+            fillValuesFromMap(userItemsMap, fillMenuItems);
+            fillValuesFromMap(userRefsMap, fillItemRefs);    
+        }
+    }
+    
     
     switch (document.title)
     {
-        case "Главная":
-        case "Личный кабинет":
+        case otherItemNames.RegistrationItem:
         {
-            idMenuItem = "item1";
+            $(itemIds.FifthItem).text(document.title);
+            idMenuItem = itemIds.FifthItem;
             
             break;
         }
-        case "О кинотеатрах":
+        case otherItemNames.StatisticsItem:
         {
-            idMenuItem = "item2";
+            buildBarChart();
+            buildPieChart('doughnut');
+            buildPieChart('pie');
 
             break;
         }
-        case "Работа":
+        case otherItemNames.TicketingItem:
         {
-            idMenuItem = "item3";
+            $(itemIds.FourthItem).text("Билет");
+            idMenuItem = itemIds.FourthItem;
+            loadCinemaHall();
 
             break;
         }
-        default:
-        case "Афиша":
+        case otherItemNames.InterviewItem:
         {
-            idMenuItem = "item4";
-
-            break;
-        }
-        case "Регистрация":
-        case "Вход":
-        {
-            idMenuItem = "item5";
+            $(itemIds.FifthItem).text(document.title);
+            idMenuItem = itemIds.ThirdItem;
 
             break;
         }
     }
+    if(movieStudioItems.includes(document.title)) {
+        $(itemIds.FifthItem).text(document.title);
+        idMenuItem = itemIds.FifthItem;
+    }
+        
     $(".menu_item").removeClass(activeClassName);
-    $('#' + idMenuItem).addClass(activeClassName);
-    
+    $(idMenuItem).addClass(activeClassName);
+        
 });

@@ -1,0 +1,40 @@
+﻿@page
+@model Cinema.View.Pages.CinemaFormModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <form id="contacts-form" method="post" action="/CinemaForm">
+                    <fieldset>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Название:</label><input type="text" name="name" value="@Model.Cinema?.Name"/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Адрес:</label><input type="text" name="address" value="@Model.Cinema?.Address"/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Карта:</label><input type="text" name="maplink" value="@Model.Cinema?.MapLink"/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label style="margin-right: -45px;">Описание:</label><textarea name="description" style="width: 90%">@Model.Cinema?.Description</textarea>
+                        </div>
+                        <div style="margin-left: -160px;" class="wrapper">
+                            <a href="#" onclick="$('#contacts-form').submit()" class="link2">
+                                <span>
+                                    <span>Сохранить</span>
+                                </span>
+                            </a>
+                        </div>
+                        <br/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

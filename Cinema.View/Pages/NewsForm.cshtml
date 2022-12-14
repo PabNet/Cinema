@@ -1,0 +1,37 @@
+﻿@page
+@model Cinema.View.Pages.NewsFormModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <form id="contacts-form" action="/NewsForm/" method="post">
+                    <fieldset>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Заголовок:</label><input type="text" name="name" value=""/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Постер:</label><input type="text" name="posterUrl" value=""/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Описание:</label><textarea name="description" style="width: 90%"></textarea>
+                        </div>
+                        <div style="margin-left: -160px;" class="wrapper">
+                            <a href="#" onclick="$('#contacts-form').submit()" class="link2">
+                                <span>
+                                    <span>Сохранить</span>
+                                </span>
+                            </a>
+                        </div>
+                        <br/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

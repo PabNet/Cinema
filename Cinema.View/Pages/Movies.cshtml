@@ -1,0 +1,50 @@
+﻿@page
+@model Cinema.View.Pages.MoviesModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <h3 style="text-align: center">Список <span>фильмов</span></h3>
+                <div style="margin-left: 43%;" class="wrapper">
+                    <a href="/MovieForm/" class="link2">
+                        <span>
+                            <span>Добавить</span>
+                        </span>
+                    </a>
+                </div>
+                @if (Model.Movies.Count != default)
+                {
+                    <ul class="list">
+                        @foreach (var movie in Model.Movies)
+                        {
+                            <li>
+                                <a>@movie.Movie?.RussianName</a><br/>
+                                @movie.Movie?.ShortDescription
+                                <div>
+                                    <a href="/MovieForm/?id=@movie.Id" class="link2" style="margin-right: 20px">
+                                        <span>
+                                            <span class="button">Изменить</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="/Movies/?handler=Delete&id=@movie.Id" class="link2">
+                                        <span>
+                                            <span class="button">Удалить</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>

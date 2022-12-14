@@ -13,10 +13,11 @@ namespace Cinema.DTO.InnerModels.AccountModel
 
         [Column(PasswordColumnName, TypeName = StringColumnType)]
         public string Password { get; set; } = null!;
-
         public virtual Role Role { get; set; } = null!;
-        
         [NotMapped]
         public string? RoleName { get; set; }
+
+        [NotMapped]
+        public override string? Description { get; set; }
     }
 }

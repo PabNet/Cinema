@@ -7,7 +7,7 @@ namespace Cinema.View.Pages
 {
     public class PersonalOfficeModel : TemplatePageModel
     {
-        public PersonalOfficeModel(IUnitOfWork unitOfWork, HttpHelper httpHelper) : base(unitOfWork, httpHelper)
+        public PersonalOfficeModel(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
         

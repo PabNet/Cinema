@@ -1,0 +1,53 @@
+﻿@page
+@model Cinema.View.Pages.RoleFormModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <form id="contacts-form" action="/RoleForm/" method="post">
+                    <fieldset>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Название:</label><input type="text" name="name" value="@Model.Role?.Name"/>
+                        </div>
+                        @if (Model.Pages?.Count != default)
+                        {
+                            <div style="margin-left: 230px;" class="field">
+                                <label>Доступы:</label>
+                                <select name="pages" multiple>
+                                    @foreach (var webPage in Model.Pages)
+                                    {
+                                        @if (Model.Role!.Pages!.Select(p=>p.Name).Contains(webPage.Name))
+                                        {
+                                            <option selected>@webPage.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option>@webPage.Name</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        }
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Описание:</label><textarea name="description" style="width: 90%">@Model.Role?.Description</textarea>
+                        </div>
+                        <div style="margin-left: -160px;" class="wrapper">
+                            <a href="#" onclick="$('#contacts-form').submit()" class="link2">
+                                <span>
+                                    <span>Сохранить</span>
+                                </span>
+                            </a>
+                        </div>
+                        <br/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

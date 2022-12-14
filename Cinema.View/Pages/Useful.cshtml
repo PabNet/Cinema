@@ -1,0 +1,74 @@
+﻿@page
+@model Cinema.View.Pages.UsefulModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                @if (Model.Vacancies.Count == default)
+                {
+                    <h3 style="text-align: center">Список вакансий на данный момент пуст</h3>
+                }
+                else
+                {
+                    <h3 style="text-align: center">Наши <span>вакансии</span></h3>
+                    @foreach(var vacancy in @Model.Vacancies)
+                    {
+                        <div class="address">
+                            <div class="fleft">
+                                <span>Должность: </span>@vacancy.Name<br/>
+                                <span>Зарплата: </span>@vacancy.StartSalary<br/>
+                                <span>Автор: </span>@vacancy.Author?.Login<br/>
+                            </div>
+                            <div class="extra-wrap">
+                                <span>Описание работы:</span><br/>
+                                @vacancy.Description
+                            </div>
+                            <div class="wrapper">
+                                <a href="/VacancyForm/?id=@vacancy.Id" class="link2">
+                                    <span>
+                                        <span class="button">Откликнуться</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                     }
+                }
+                <br/>
+                <div class="line-hor"></div>
+                <br/>
+                @if (Model.News.Count == default)
+                {
+                    <h3 style="text-align: center">Список новостей на данный момент пуст</h3>
+                }
+                else
+                {
+                    <h3 style="text-align: center">Наши <span>новости</span></h3>
+                    @foreach(var news in @Model.News)
+                    {
+                        <div class="address">
+                        <fieldset style="border: dotted">
+                            <div id="movie_info" style="float: left; width: 60%">
+                                <span>Заголовок: </span>@news.Name<br/>
+                                <span>Автор: </span>@news.Author?.Login<br/>
+                                <span>Описание: </span>@news.Description<br/>
+                            </div>
+                            <div class="extra-wrap">
+                                <img src="@news.PosterUrl" width="350px" height="250px" alt="Ok"/>
+                            </div>
+                        </fieldset>
+                        </div>
+                        <br/>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

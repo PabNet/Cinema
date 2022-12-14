@@ -49,17 +49,12 @@ namespace Cinema.Domain.Implementations
             var dbEntity = Get(predicate).FirstOrDefault();
             if (dbEntity != null)
             {
-                Update(dbEntity);
+                Update(item);
             }
             else
             {
                 Create(item);
             }
-        }
-
-        public TEntity GetById(Guid id)
-        {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<TEntity> Get()

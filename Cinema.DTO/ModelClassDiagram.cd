@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cinema.DTO.InnerModels.ModelTemplate" Collapsed="true">
+    <Position X="11.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAACAAAAAAAMAAAIAAFAAEAAACACAAAAAAAAhAAYYEA=</HashCode>
+      <FileName>InnerModels\Templates\ModelTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.ChatModel.Chat" Collapsed="true">
+    <Position X="14" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAgAAAAAAAAAAAAAQAAIAQ=</HashCode>
+      <FileName>InnerModels\ChatModel\Chat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.CinemaHallSeatModel.CinemaHallSeat" Collapsed="true">
+    <Position X="8.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAIAAAAAEAAAAAAAAAAAAACAAAAIQAAAAA=</HashCode>
+      <FileName>InnerModels\CinemaHallSeatModel\CinemaHallSeat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.MoviesBillboardModel.MoviesBillboard" Collapsed="true">
+    <Position X="10.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAQAEAAAAAACAAAgASAQAAAAAAAAAQgAADA=</HashCode>
+      <FileName>InnerModels\MoviesBillboardModel\MoviesBillboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.MovieShowModel.MovieShow" Collapsed="true">
+    <Position X="12.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAEAEAAAAAAAAAAAAAgAAAABAAAAAQAAAQA=</HashCode>
+      <FileName>InnerModels\MovieShowModel\MovieShow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.Templates.ComponentModelTemplate" Collapsed="true">
+    <Position X="6.25" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InnerModels\Templates\ComponentModelTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.Templates.ReviewModelTemplate" Collapsed="true">
+    <Position X="17.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>InnerModels\Templates\ReviewModelTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.TicketModel.Ticket" Collapsed="true">
+    <Position X="15.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAQAAAAQQAQAgAAAAgAAAEAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\TicketModel\Ticket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.CinemaAddressModel.CinemaAddress" Collapsed="true">
+    <Position X="4" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAgAkAAAAAAAAEAABAAAAAAAAAAAAACAAAAAQAAAQA=</HashCode>
+      <FileName>InnerModels\CinemaAddressModel\CinemaAddress.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.CinemaHallModel.CinemaHall" Collapsed="true">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAEAAQAAAAAIACAAAAAAAAwAQAAA=</HashCode>
+      <FileName>InnerModels\CinemaHallModel\CinemaHall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.CinemaHallSeatTypeModel.CinemaHallSeatType" Collapsed="true">
+    <Position X="6" Y="4.25" Width="1.75" />
+    <InheritanceLine Type="Cinema.DTO.InnerModels.Templates.ComponentModelTemplate" ManuallyRouted="true">
+      <Path>
+        <Point X="7.375" Y="3.441" />
+        <Point X="7.375" Y="3.892" />
+        <Point X="6.875" Y="3.892" />
+        <Point X="6.875" Y="4.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAkABAAAAAIAACAAAAAAAAAAEAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\CinemaHallSeatTypeModel\CinemaHallSeatType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.CinemaServiceModel.CinemaService" Collapsed="true">
+    <Position X="7.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\CinemaServiceModel\CinemaService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.CinemaSnackModel.CinemaSnack" Collapsed="true">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\CinemaSnackModel\CinemaSnack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.MovieFormatModel.MovieFormat" Collapsed="true">
+    <Position X="9.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\MovieFormatModel\MovieFormat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.NewsModel.News" Collapsed="true">
+    <Position X="10.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAoAAAAAAAAAAAAACAAAAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\NewsModel\News.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.PageModel.Page" Collapsed="true">
+    <Position X="11.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\PageModel\Page.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.RoleModel.Role" Collapsed="true">
+    <Position X="12.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAACAAAAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\RoleModel\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.Templates.PersonModelTemplate" Collapsed="true">
+    <Position X="13.75" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InnerModels\Templates\PersonModelTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.VacancyModel.Vacancy" Collapsed="true">
+    <Position X="15" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAABAAAAAgAAAAAAAAAAAgAAAAAAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\VacancyModel\Vacancy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.ChatMessageModel.ChatMessage" Collapsed="true">
+    <Position X="16.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\ChatMessageModel\ChatMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.CinemaReviewModel.CinemaReview" Collapsed="true">
+    <Position X="18" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAA=</HashCode>
+      <FileName>InnerModels\CinemaReviewModel\CinemaReview.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.MovieReviewModel.MovieReview" Collapsed="true">
+    <Position X="19" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQEAAAA=</HashCode>
+      <FileName>InnerModels\MovieReviewModel\MovieReview.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.AccountModel.Account" Collapsed="true">
+    <Position X="12.5" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="Cinema.DTO.InnerModels.Templates.PersonModelTemplate" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.625" Y="5.941" />
+        <Point X="14.625" Y="6.625" />
+        <Point X="14" Y="6.625" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAEAAAAAAAAAAAAAAGAAASEQAAAAA=</HashCode>
+      <FileName>InnerModels\AccountModel\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.DTO.InnerModels.VacancyResponseModel.VacancyResponse" Collapsed="true">
+    <Position X="16" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>InnerModels\VacancyResponseModel\VacancyResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

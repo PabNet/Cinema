@@ -10,7 +10,7 @@
     <div class="border-right">
         <div class="border-left">
             <div class="inner">
-                <form id="contacts-form" action="">
+                <form id="contacts-form" action="/Registration/" method="post">
                     <fieldset>
                         <div style="margin-left: 230px;" class="field">
                             <label style="margin-right: -45px;">Имя:</label><input type="text" name="name" value=""/>
@@ -25,7 +25,7 @@
                             <label style="margin-right: -45px;">Пароль:</label><input type="password" name="password" value=""/>
                         </div>
                         <div style="margin-left: -70px;" class="wrapper">
-                            <a href="#" class="link2">
+                            <a href="#" onclick="$('#contacts-form').submit()" class="link2">
                                 <span>
                                     <span>Зарегистрироваться</span>
                                 </span>

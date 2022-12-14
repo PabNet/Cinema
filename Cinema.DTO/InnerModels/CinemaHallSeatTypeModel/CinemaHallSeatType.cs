@@ -5,9 +5,9 @@ namespace Cinema.DTO.InnerModels.CinemaHallSeatTypeModel
     [Table(TableName)]
     public partial class CinemaHallSeatType
     {
-        [Column(TypeColumnName, TypeName = StringColumnType)]
-        public string Type { get; set; } = null!;
-        
+        [NotMapped]
+        public override string? Description { get; set; }
+
         [Column(MorningPriceColumnName, TypeName = FractionalColumnType)]
         public double MorningPrice { get; set; }
         

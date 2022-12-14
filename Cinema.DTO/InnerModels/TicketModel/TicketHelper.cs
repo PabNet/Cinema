@@ -3,6 +3,8 @@
     public partial class Ticket : ModelTemplate
     {
         private const string TableName = "tickets",
-                             KeyColumnName = "key";
+                             KeyColumnName = "key",
+                             RowColumnName = "row",
+                             SeatColumnName = "seat";
     }
 }

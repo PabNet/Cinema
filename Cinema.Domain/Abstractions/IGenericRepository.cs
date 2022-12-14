@@ -8,7 +8,6 @@ namespace Cinema.Domain.Abstractions
         void Create(TEntity item);
         void CreateRange(IEnumerable<TEntity> items);
         void CreateOrUpdate(TEntity item, Func<TEntity, bool> predicate);
-        TEntity GetById(Guid id);
         IEnumerable<TEntity> Get();
         IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);
         void Remove(TEntity item);

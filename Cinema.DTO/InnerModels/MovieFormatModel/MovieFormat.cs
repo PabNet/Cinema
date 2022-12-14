@@ -1,15 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using Cinema.DTO.InnerModels.MovieShowModel;
 
 namespace Cinema.DTO.InnerModels.MovieFormatModel
 {
     [Table(TableName)]
     public partial class MovieFormat
     {
-        [Column(TypeColumnName, TypeName = StringColumnType)]
-        public string Type { get; set; } = null!;
-        
-        [Column(DescriptionColumnName, TypeName = StringColumnType)]
-        public string? Description { get; set; }
+        public virtual List<MovieShow>? MovieShows { get; set; }
     }
 }

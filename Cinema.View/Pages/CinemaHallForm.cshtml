@@ -1,0 +1,59 @@
+﻿@page
+@model Cinema.View.Pages.CinemaHallFormModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <form id="contacts-form" action="/CinemaHallForm" method="post">
+                    <fieldset>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Название:</label><input type="text" name="name" value="@Model.Hall?.Name"/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Номер:</label><input type="text" name="number" value="@Model.Hall?.Number"/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Количество рядов:</label><input type="text" name="rowsCount" value="@Model.Hall?.Number"/>
+                        </div>
+                        @if (Model.Cinemas.Count != default)
+                        {
+                            <div style="margin-left: 230px;" class="field">
+                                <label>Кинотеатры:</label>
+                                <select name="cinemas" multiple>
+                                    @foreach (var cinema in Model.Cinemas)
+                                    {
+                                        @if (Model.Hall!.Cinemas!.Select(c => c.Name).Contains(cinema.Name))
+                                        {
+                                            <option selected>@cinema.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option>@cinema.Name</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        }
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Описание:</label><textarea name="description" style="width: 90%">@Model.Hall?.Description</textarea>
+                        </div>
+                        <div style="margin-left: -120px;" class="wrapper">
+                            <a href="#" onclick="$('#contacts-form').submit()" class="link2">
+                                <span>
+                                    <span>Сохранить</span>
+                                </span>
+                            </a>
+                        </div>
+                        <br/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

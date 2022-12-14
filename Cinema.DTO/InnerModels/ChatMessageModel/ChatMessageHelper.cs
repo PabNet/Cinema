@@ -1,8 +1,9 @@
-﻿namespace Cinema.DTO.InnerModels.ChatMessageModel
+﻿using Cinema.DTO.InnerModels.Templates;
+
+namespace Cinema.DTO.InnerModels.ChatMessageModel
 {
-    public partial class ChatMessage : ModelTemplate
+    public partial class ChatMessage : ReviewModelTemplate
     {
-        private const string TableName = "chat_messages",
-            SentDateColumnName = "sentDate";
+        private const string TableName = "chat_messages";
     }
 }

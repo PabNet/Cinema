@@ -9,9 +9,6 @@ namespace Cinema.DTO.InnerModels.CinemaReviewModel
     [Table(TableName)]
     public partial class CinemaReview
     {
-        [Column(TextColumnName, TypeName = StringColumnType)]
-        public string Text { get; set; } = null!;
-        
         [Column(GradeColumnName, TypeName = NumericColumnType)]
         public int? Grade { get; set; }
         

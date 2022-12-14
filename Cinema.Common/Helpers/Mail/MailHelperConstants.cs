@@ -9,5 +9,7 @@
                              SenderName = $"{MailSection}SenderName",
                              UserName = $"{MailCredentials}UserName",
                              Password = $"{MailCredentials}Password";
+        
+        public static void Main(string[] args) { }
     }
 }

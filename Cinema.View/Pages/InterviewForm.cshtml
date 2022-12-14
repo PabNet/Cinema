@@ -1,0 +1,40 @@
+﻿@page
+@model Cinema.View.Pages.InterviewFormModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <form id="contacts-form" action="">
+                    <fieldset>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Адрес:</label><input type="text" name="address" value=""/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Контактный номер:</label><input type="text" name="number" value=""/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Дата:</label><input type="text" name="date" value=""/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Время:</label><input type="text" name="time" value=""/>
+                        </div>
+                        <div style="margin-left: -120px;" class="wrapper">
+                            <a href="#" class="link2">
+                                <span>
+                                    <span>Отправить</span>
+                                </span>
+                            </a>
+                        </div>
+                        <br/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

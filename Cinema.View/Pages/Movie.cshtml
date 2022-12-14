@@ -10,52 +10,101 @@
     <div class="border-right">
         <div class="border-left">
             <div class="inner">
-                <h4>Джанго освобождённый</h4>
+                <h4>@Model.Movie?.Movie?.RussianName</h4>
                 <div class="address">
-                    <div class="fleft">
-                        <span>Продолжительность: </span>155 мин.<br/>
-                        <span>Возрастной рейтинг: </span>18<br/>
-                        <span>Год издания: </span>2012<br/>
-                        <span>Страны: </span> <br/>
-                        <div class="inner-span">
-                            Аэрохоккей<br/>
-                        </div>
-                        <span>Жанры: </span> <br/>
-                        <div class="inner-span">
-                            Аэрохоккей<br/>
-                        </div>
-                        <span>Режиссёры: </span> <br/>
-                        <div class="inner-span">
-                            Аэрохоккей<br/>
-                        </div>
-                        <span>Актёры: </span> <br/>
-                        <div class="inner-span">
-                            Аэрохоккей<br/>
-                        </div>
-                        <span>Сеансы: </span> <br/>
-                        <div class="inner-span">
-                            27.10.2022<br/>
-                            <span>Model Plaza: </span>11:15<br/>11:15<br/>11:15<br/>11:15<br/>
-                            <span>Model Carza: </span>11:15<br/>11:15<br/>11:15<br/>11:15<br/>
-                            28.10.2022<br/>
-                            <span>Model Plaza: </span>11:15<br/>11:15<br/>11:15<br/>11:15<br/>
-                            <span>Model Carza: </span>11:15<br/>11:15<br/>11:15<br/>11:15<br/>
-                        </div>
-                        <span>Отзывы: </span> <br/>
-                        <div class="inner-span">
-                            <span>Автор: </span>Халеев Павел Александрович<br/>
-                            <span>Оценка: </span>5/10<br/>
-                            <span>Комментарий: </span>Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания по разработке направлений прогрессивного развития. С другой стороны реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации модели развития.<br/><br/>
-                        </div>
+                    <div id="movie_info" style="float: left; width: 60%">
+                        <span>Длительность: </span>@Model.Movie?.Movie?.FilmLength минут<br/>
+                        <span>Год выпуска: </span>@Model.Movie?.Movie?.CreationYear<br/>
+                        <span>Возрастное ограничение: </span>MPAA: @Model.Movie?.Movie?.RatingMpa, Общий: @Model.Movie?.Movie?.RatingAgeLimits?.Replace("age", string.Empty)+<br/>
+                        <span>Страны: </span>
+                        <div style="display: inline">
+                            @if (Model.Movie?.Movie?.Countries != null)
+                            {
+                                @foreach (var country in Model.Movie?.Movie?.Countries!.Take(10)!)
+                                {
+                                    @country.CountryName@:, 
+                                }
+                            }
+                        </div><br/>
+                        <span>Жанры: </span>
+                        <div style="display: inline">
+                            @if (Model.Movie?.Movie?.Genres != null)
+                            {
+                                @foreach (var genre in Model.Movie?.Movie?.Genres!.Take(10)!)
+                                {
+                                    @genre.GenreName@:,
+                                }
+                            }
+                        </div><br/>
+                        <span>Актёры: </span>
+                        <div style="display: inline">
+                            @if (Model.Movie?.Staff != null)
+                            {
+                                @foreach (var actor in Model.Movie?.Staff?.Where(s => s.ProfessionKey == "ACTOR")!.Take(10)!)
+                                {
+                                    @actor.RussianName@:,
+                                }
+                            }
+                        </div><br/>
+                        <span>Режиссёры: </span>
+                        <div style="display: inline">
+                            @if (Model.Movie?.Staff != null)
+                            {
+                                @foreach (var actor in Model.Movie?.Staff?.Where(s => s.ProfessionKey == "DIRECTOR")!.Take(10)!)
+                                {
+                                    @actor.RussianName@:,
+                                }
+                            }
+                        </div><br/>
+                        <span>Рейтинги: </span>
+                        <div style="display: inline">Good Review: @Model.Movie?.Movie?.RatingGoodReview (@Model.Movie?.Movie?.RatingGoodReviewVoteCount), Kinopoisk: @Model.Movie?.Movie?.Rating (@Model.Movie?.Movie?.RatingVoteCount), IMDb: @Model.Movie?.Movie?.RatingImdb (@Model.Movie?.Movie?.RatingImdbVoteCount), FilmCritics: @Model.Movie?.Movie?.RatingFilmCritics (@Model.Movie?.Movie?.RatingFilmCriticsVoteCount), RussianCritics: @Model.Movie?.Movie?.RatingRussianCritics (@Model.Movie?.Movie?.RatingRussianCriticsVoteCount), Await: @Model.Movie?.Movie?.RatingAwait (@Model.Movie?.Movie?.RatingAwaitVoteCount),</div><br/>
+                        <span>Описание: </span>@Model.Movie?.Movie?.Description<br/>
+                        <span>Трейлер: </span><iframe width="500" height="315" src="@Model.Movie?.Trailer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        @if (Model.Movie?.MovieShows?.Count == default)
+                        {
+                            <span>Сеансов на данный момент нет</span><br/>
+                        }
+                        else
+                        {
+                            <span>Сеансы: </span><br/>
+                            @foreach (var movieDay in Model.Movie.MovieShows.GroupBy(m => m.Date))
+                            {
+                                <fieldset style="text-align: center; border: dotted">
+                                    <legend>@movieDay.Key</legend>
+                                    @foreach (var movieShow in movieDay.GroupBy(m => m.Cinema.Name))
+                                    {
+                                        <span>@movieShow.Key:</span>
+                                        <div>
+                                            @foreach (var movieTime in movieDay.Where(m => m.Cinema.Name == movieShow.Key))
+                                            {
+                                                @movieTime.Time
+                                            }
+                                        </div>
+                                    }
+                                </fieldset>   
+                            }
+                        }
+                        @if (Model.Movie?.Reviews?.Count == default)
+                        {
+                            <span>Отзывов на данный момент нет</span><br/>
+                        }
+                        else
+                        {
+                            <span>Отзывы: </span><br/>
+                            @foreach (var review in Model.Movie?.Reviews!)
+                            {
+                                <fieldset style="border: inset; text-align: left; margin-top: 10px">
+                                    <span>Автор: </span>@review.User.Login<br/>
+                                    <span>Оценка: </span>@review.Grade<br/>
+                                    <span>Отзыв: </span>@review.Text<br/>
+                                </fieldset>
+                            }
+                        }
                     </div>
-                    <br/>
-                    <!--<div class="extra-wrap">
-                        <img src="images/2page-img3.jpg" width="200px" height="300px" alt=""/>
-                    </div>-->
-                    <br/>
+                    <div class="extra-wrap">
+                        <img style="mergin-left: 50px" src="@Model.Movie?.Movie?.PosterUrl" width="335px" height="450px" alt="@Model.Movie?.Movie?.EnglishName"/>
+                    </div>
                 </div>
-                <br/>
-                <br/>
             </div>
         </div>
     </div>

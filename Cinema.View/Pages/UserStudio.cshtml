@@ -1,0 +1,99 @@
+﻿@page
+@model Cinema.View.Pages.UserStudioModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                @if (Model.VacancyResponses.Count == default)
+                {
+                    <h3 style="text-align: center">Откликов на данный момент нет</h3>
+                }
+                else
+                {
+                    <h3 style="text-align: center">Отклики на <span>вакансии</span></h3>
+                    @foreach (var vacancyResponse in Model.VacancyResponses)
+                    {
+                        <div class="address">
+                            <div class="fleft">
+                                <span>Имя: </span>@vacancyResponse.Name<br/>
+                                <span>Почта: </span>@vacancyResponse.Email<br/>
+                                <span>Должность: </span>@vacancyResponse.Vacancy.Name<br/>
+                            </div>
+                            <div class="extra-wrap">
+                                <span>Описание:</span><br/>
+                                @vacancyResponse.Description
+                            </div>
+                            <div>
+                                <a href="/InterviewForm/?vacancyResponseId=@vacancyResponse.Id" class="link2" style="margin-right: 20px">
+                                    <span>
+                                        <span class="button">Одобрить</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="/UserStudio/?handler=Reject&id=@vacancyResponse.Id" class="link2">
+                                    <span>
+                                        <span class="button">Отклонить</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                    }
+                }
+                <br/>
+                <div class="line-hor"></div>
+                <br/>
+                @if (Model.Accounts.Count == default)
+                {
+                    <h3 style="text-align: center">На данный момент в системе нет зарегестрированных пользователей</h3>
+                }
+                else
+                {
+                    <h3 style="text-align: center">Роли <span>пользователей</span></h3>
+                    @foreach (var account in Model.Accounts)
+                    {
+                        <form id="contacts-form" action="/UserStudio/" method="post">
+                            <fieldset>
+                                <div style="margin-left: 230px;" class="field">
+                                    <label style="margin-right: -45px;">Имя:</label><input type="text" name="login" value="@account.Login"/>
+                                </div>
+                                <div style="margin-left: 230px;" class="field">
+                                    <label style="margin-right: -45px;">Роль:</label>
+                                    <select name="role">
+                                        @foreach (var role in Model.Roles.Where(r=>r.Name != "Administrator"))
+                                        {
+                                            @if (role.Name == account.Role.Name)
+                                            {
+                                                <option selected>@role.Name</option>
+                                            }
+                                            else
+                                            {
+                                                <option>@role.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <div style="margin-left: -95px;" class="wrapper">
+                                    <a href="#" onclick="$('#contacts-form').submit()" class="link2">
+                                        <span>
+                                            <span>Сохранить</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <br/>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

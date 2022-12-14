@@ -1,0 +1,50 @@
+﻿@page
+@model Cinema.View.Pages.NewsModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <h3 style="text-align: center">Список <span>новостей</span></h3>
+                <div style="margin-left: 43%;" class="wrapper">
+                    <a href="/NewsForm" class="link2">
+                        <span>
+                            <span>Добавить</span>
+                        </span>
+                    </a>
+                </div>
+                @if (Model.News.Count != default)
+                {
+                    <ul class="list">
+                        @foreach (var news in Model.News)
+                        {
+                            <li>
+                                <a>@news.Name</a><br/>
+                                @news.Description
+                                <div>
+                                    <a href="/NewsForm/?id=@news.Id" class="link2" style="margin-right: 20px">
+                                        <span>
+                                            <span class="button">Изменить</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="/News/?handler=Delete&id=@news.Id" class="link2">
+                                        <span>
+                                            <span class="button">Удалить</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>

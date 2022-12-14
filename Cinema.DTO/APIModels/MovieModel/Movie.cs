@@ -65,6 +65,12 @@ namespace Cinema.DTO.APIModels.MovieModel
         [JsonProperty(RatingRussianCriticsVoteCountName)]
         public int? RatingRussianCriticsVoteCount { get; set; }
         
+        [JsonProperty(RatingAwaitName)]
+        public double? RatingAwait { get; set; }
+        
+        [JsonProperty(RatingAwaitCount)]
+        public int? RatingAwaitVoteCount { get; set; }
+        
         [JsonProperty(WebUrlName)]
         public string? WebUrl { get; set; }
         

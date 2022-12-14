@@ -1,0 +1,50 @@
+﻿@page
+@model Cinema.View.Pages.RolesModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <h3 style="text-align: center">Список <span>ролей</span></h3>
+                <div style="margin-left: 43%;" class="wrapper">
+                    <a href="/RoleForm/" class="link2">
+                        <span>
+                            <span>Добавить</span>
+                        </span>
+                    </a>
+                </div>
+                @if (Model.Roles.Count != default)
+                {
+                    <ul class="list">
+                        @foreach (var role in Model.Roles)
+                        {
+                            <li>
+                                <a>@role.Name</a><br/>
+                                @role.Description
+                                <div>
+                                    <a href="/RoleForm/?id=@role.Id" class="link2" style="margin-right: 20px">
+                                        <span>
+                                            <span class="button">Изменить</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="/Roles/?handler=Delete&id=@role.Id" class="link2">
+                                        <span>
+                                            <span class="button">Удалить</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Cinema.DTO.APIModels.MovieModel;
 using Cinema.DTO.APIModels.StaffModel;
+using Cinema.DTO.InnerModels.MovieReviewModel;
+using Cinema.DTO.InnerModels.MovieShowModel;
 
 namespace Cinema.DTO.InnerModels.MoviesBillboardModel
 {
@@ -17,9 +20,16 @@ namespace Cinema.DTO.InnerModels.MoviesBillboardModel
         public string? Trailer { get; set; }
         
         [NotMapped]
+        public int? MovieId { get; set; }
+        
+        [NotMapped]
         public Movie? Movie { get; set; }
         
         [NotMapped]
-        public Staff? Staff { get; set; }
+        public List<Staff>? Staff { get; set; }
+        
+        public virtual List<MovieShow>? MovieShows { get; set; }
+        
+        public virtual List<MovieReview>? Reviews { get; set; }
     }
 }

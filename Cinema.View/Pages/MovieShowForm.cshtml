@@ -1,0 +1,98 @@
+﻿@page
+@model Cinema.View.Pages.MovieShowFormModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <form id="contacts-form" action="">
+                    <fieldset>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Фильм:</label>
+                            <select name="movie">
+                                @foreach (var moviesBillboard in Model.MoviesBillboards)
+                                {
+                                    @if (Model?.MovieShow?.Movie?.Movie?.RussianName == moviesBillboard?.Movie?.RussianName)
+                                    {
+                                        <option selected>@moviesBillboard?.Movie?.RussianName</option>
+                                    }
+                                    else
+                                    {
+                                        <option>@moviesBillboard?.Movie?.RussianName</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Кинотеатр:</label>
+                            <select name="cinema">
+                                @foreach (var cinema in Model?.Cinemas!)
+                                {
+                                    @if (Model?.MovieShow?.Cinema.Name == cinema?.Name)
+                                    {
+                                        <option selected>@cinema?.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option>@cinema?.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Кинозал:</label>
+                            <select name="hall">
+                                @foreach (var hall in Model?.Halls!)
+                                {
+                                    @if (Model?.MovieShow?.Hall?.Name == hall.Name)
+                                    {
+                                        <option selected>@hall.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option>@hall.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Формат:</label>
+                            <select name="format">
+                                @foreach (var format in Model?.MovieFormats!)
+                                {
+                                    @if (Model?.MovieShow?.Format?.Name == format.Name)
+                                    {
+                                        <option selected>@format.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option>@format.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Дата:</label><input type="text" name="date" value="@Model?.MovieShow?.Date"/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Время:</label><input type="text" name="time" value="@Model?.MovieShow?.Time"/>
+                        </div>
+                        <div style="margin-left: -160px;" class="wrapper">
+                            <a href="#" onclick="$('#contacts-form').submit()" class="link2">
+                                <span>
+                                    <span>Сохранить</span>
+                                </span>
+                            </a>
+                        </div>
+                        <br/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

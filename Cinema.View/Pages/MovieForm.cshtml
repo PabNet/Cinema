@@ -1,0 +1,34 @@
+﻿@page
+@model Cinema.View.Pages.MovieFormModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <form id="contacts-form" action="/MovieForm" method="post">
+                    <fieldset>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Id фильма:</label><input type="text" name="movieId" value="@Model.Movie?.Movie?.Id"/>
+                        </div>
+                        <div style="margin-left: 230px;" class="field">
+                            <label>Ссылка на трейлер:</label><input type="text" name="trailer" value="@Model.Movie?.Trailer"/>
+                        </div>
+                        <div style="margin-left: -160px;" class="wrapper">
+                            <a href="#" onclick="$('#contacts-form').submit()" class="link2">
+                                <span>
+                                    <span>Сохранить</span>
+                                </span>
+                            </a>
+                        </div>
+                        <br/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,12 +18,13 @@ using Cinema.DTO.InnerModels.MovieReviewModel;
 using Cinema.DTO.InnerModels.MoviesBillboardModel;
 using Cinema.DTO.InnerModels.MovieShowModel;
 using Cinema.DTO.InnerModels.NewsModel;
+using Cinema.DTO.InnerModels.PageModel;
 using Cinema.DTO.InnerModels.RoleModel;
 using Cinema.DTO.InnerModels.TicketModel;
-using Cinema.DTO.InnerModels.UserModel;
 using Cinema.DTO.InnerModels.VacancyModel;
 using Cinema.DTO.InnerModels.VacancyResponseModel;
 using Cinema.View.Additions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -47,7 +48,7 @@ services.AddSingleton<HttpHelper>();
 services.AddSingleton<MailHelper>();
 services.AddSingleton<JsonHelper>();
 
-services.AddDbContext<CinemaDbContext>(options=>options.UseSqlServer(configuration[CinemaDbContext.ConnectionString]));
+services.AddDbContext<CinemaDbContext>();
 
 services.AddScoped<IGenericRepository<Role>, ModelRepository<Role>>();
 services.AddScoped<IGenericRepository<Account>, ModelRepository<Account>>();
@@ -65,12 +66,22 @@ services.AddScoped<IGenericRepository<MoviesBillboard>, ModelRepository<MoviesBi
 services.AddScoped<IGenericRepository<MovieShow>, ModelRepository<MovieShow>>();
 services.AddScoped<IGenericRepository<News>, ModelRepository<News>>();
 services.AddScoped<IGenericRepository<Ticket>, ModelRepository<Ticket>>();
-services.AddScoped<IGenericRepository<User>, ModelRepository<User>>();
 services.AddScoped<IGenericRepository<Vacancy>, ModelRepository<Vacancy>>();
 services.AddScoped<IGenericRepository<VacancyResponse>, ModelRepository<VacancyResponse>>();
 services.AddScoped<IGenericRepository<CinemaAddress>, ModelRepository<CinemaAddress>>();
+services.AddScoped<IGenericRepository<Page>, ModelRepository<Page>>();
+
+services.AddScoped<IApiRepository, KinopoiskRepository>();
+services.AddScoped<IExternalServiceRepository, PostmanRepository>();
 
 services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/");
+        options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/");
+    });
 
 var app = builder.Build();
 
@@ -82,6 +93,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
 app.Run();

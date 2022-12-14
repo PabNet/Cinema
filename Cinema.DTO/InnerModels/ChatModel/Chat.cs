@@ -11,10 +11,7 @@ namespace Cinema.DTO.InnerModels.ChatModel
         public virtual Account? Operator { get; set; }
         
         public virtual Account? Client { get; set; }
-        
-        [Column(StartDateColumnName, TypeName = DateTimeColumnType)]
-        public DateTime StartDate { get; set; }
-        
+
         [Column(EndDateColumnName, TypeName = DateTimeColumnType)]
         public DateTime? EndDate { get; set; }
     }

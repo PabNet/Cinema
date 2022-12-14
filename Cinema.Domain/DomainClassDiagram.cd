@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cinema.Domain.Implementations.UnitOfWork">
+    <Position X="5.5" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IAAABKAAASAAzAAAAQFBAAAAABCIAAAAAADAYAEAIIA=</HashCode>
+      <FileName>Implementations\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="1.383" />
+  </Class>
+  <Class Name="Cinema.Domain.Implementations.ModelRepository&lt;TEntity&gt;">
+    <Position X="1.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAACAABABAAAAAJAAAAAAAAEAAAAAAAAAAABA=</HashCode>
+      <FileName>Implementations\ModelRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.363" />
+  </Class>
+  <Class Name="Cinema.Domain.Abstractions.TemplateRepository" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstractions\TemplateRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cinema.Domain.Implementations.ApiRepository" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementations\ApiRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.272" />
+  </Class>
+  <Class Name="Cinema.Domain.Implementations.CinemaDbContext">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QIUiAIAAAYSAQJExQQAEAJAQEhAAAAGAECIABAAAAAA=</HashCode>
+      <FileName>Implementations\CinemaDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Cinema.Domain.Abstractions.IApiRepository" Collapsed="true">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstractions\IApiRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Cinema.Domain.Abstractions.IGenericRepository&lt;TEntity&gt;" Collapsed="true">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAAAAAABAAAAABAAAAAAAAEAAAAAAAAAAABA=</HashCode>
+      <FileName>Abstractions\IGenericRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Cinema.Domain.Abstractions.IUnitOfWork">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAABKAAAQAAiAAAAQFBAAAAABCIAAAAAADAYAEAIIA=</HashCode>
+      <FileName>Abstractions\IUnitWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

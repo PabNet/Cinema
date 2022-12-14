@@ -1,8 +1,9 @@
-﻿namespace Cinema.DTO.InnerModels.MovieFormatModel
+﻿using Cinema.DTO.InnerModels.Templates;
+
+namespace Cinema.DTO.InnerModels.MovieFormatModel
 {
-    public partial class MovieFormat : ModelTemplate
+    public partial class MovieFormat : ComponentModelTemplate
     {
-        private const string TableName = "movie_formats",
-            TypeColumnName = "type";
+        private const string TableName = "movie_formats";
     }
 }

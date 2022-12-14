@@ -11,7 +11,7 @@ namespace Cinema.View.Pages
 {
     public class IndexModel : TemplatePageModel
     {
-        public IndexModel(IUnitOfWork unitOfWork, HttpHelper httpHelper) : base(unitOfWork, httpHelper) { }
+        public IndexModel(IUnitOfWork unitOfWork) : base(unitOfWork) { }
         
         public override string Title { get; set; } = "Главная";
 
