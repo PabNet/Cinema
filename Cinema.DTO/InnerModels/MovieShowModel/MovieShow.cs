@@ -11,9 +11,9 @@ namespace Cinema.DTO.InnerModels.MovieShowModel
     [Table(TableName)]
     public partial class MovieShow
     {
-        public virtual MoviesBillboard Movie { get; set; } = null!;
+        public virtual MoviesBillboard? Movie { get; set; }
 
-        public virtual CinemaAddress Cinema { get; set; } = null!;
+        public virtual CinemaAddress? Cinema { get; set; }
         
         public virtual MovieFormat? Format { get; set; }
         

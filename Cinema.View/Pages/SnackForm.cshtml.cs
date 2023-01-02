@@ -28,8 +28,10 @@ namespace Cinema.View.Pages
             }
         }
 
-        public IActionResult OnPost(CinemaSnack snack)
+        public IActionResult OnPost(CinemaSnack snack, string[] cinemas)
         {
+            var cinemasObjectArray = this._unitOfWork.CinemaAddressRepository.Get(c=>cinemas.Contains(c.Name)).ToList();
+            snack.Cinemas = cinemasObjectArray;
             if(SnackId != null)
             {
                 snack.Id = (Guid)SnackId;

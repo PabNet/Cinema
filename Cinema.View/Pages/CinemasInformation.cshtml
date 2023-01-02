@@ -19,11 +19,11 @@
                     <h3 style="text-align: center">Наши <span>кинотеатры</span></h3>
                     @foreach (var cinema in Model.Cinemas)
                     {
-                        <h4>@cinema.Name (cinema.Address)</h4>
+                        <h4>@cinema.Name (@cinema.Address)</h4>
                         <div class="address">
                             <div class="fleft">
                                 <span>Описание:</span>@cinema.Description<br/>
-                                @if (cinema.Services?.Count != default)
+                                @if (cinema.Services?.Count != default(int))
                                 {
                                     <span>Сервисы:</span>
                                     <br/>
@@ -37,7 +37,7 @@
                                         </fieldset>
                                     }
                                 }
-                                @if (cinema.Snacks?.Count != default)
+                                @if (cinema.Snacks?.Count != default(int))
                                 {
                                     <span style="margin-top: 10px">Еда: </span>
                                     <br/>
@@ -51,7 +51,7 @@
                                         </fieldset>
                                     }
                                 }
-                                @if (cinema.Reviews?.Count != default)
+                                @if (cinema.Reviews?.Count != default(int))
                                 {
                                     <span style="font-weight: bold">Отзывы:</span>
                                     <br/>
@@ -69,7 +69,7 @@
                             <iframe src="@cinema.MapLink" width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             <br/>
                             <div style="margin-left: 45%" class="wrapper">
-                                <a href="/CinemaForm/@cinema.Id" class="link2">
+                                <a href="/CinemaReview/?id=@cinema.Id" class="link2">
                                     <span>
                                         <span class="button">Оценить</span>
                                     </span>

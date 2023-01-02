@@ -32,3 +32,6 @@
         $('.result').html(result);
     }
 }
+
+function issueTicket() {
+}

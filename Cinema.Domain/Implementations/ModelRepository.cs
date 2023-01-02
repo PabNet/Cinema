@@ -59,7 +59,7 @@ namespace Cinema.Domain.Implementations
 
         public IEnumerable<TEntity> Get()
         {
-            return _dbSet.AsNoTracking().ToList();
+            return _dbSet.ToList();
         }
 
         public IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)

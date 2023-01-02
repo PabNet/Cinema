@@ -27,9 +27,8 @@ namespace Cinema.DTO.InnerModels.MoviesBillboardModel
         
         [NotMapped]
         public List<Staff>? Staff { get; set; }
-        
-        public virtual List<MovieShow>? MovieShows { get; set; }
-        
-        public virtual List<MovieReview>? Reviews { get; set; }
+
+        public virtual List<MovieShow>? Shows { get; set; } = new();
+        public virtual List<MovieReview>? Reviews { get; set; } = new();
     }
 }

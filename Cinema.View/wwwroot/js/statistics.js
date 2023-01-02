@@ -1,12 +1,12 @@
 ﻿function buildBarChart() {
-    ctx = $('#bar_chart').getContext('2d');
+    ctx = document.getElementById('bar_chart').getContext('2d');
     chart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'],
+            labels: ['Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
             datasets: [{
                 label: 'Life expectancy',
-                data: [84.308, 84.188, 84.118, 83.706, 83.5, 83.468],
+                data: [35, 24, 26, 18],
                 labelColor: '#fff',
                 backgroundColor: [
                     'rgba(216, 27, 96, 0.6)',
@@ -33,7 +33,7 @@
             },
             title: {
                 display: true,
-                text: 'Life Expectancy by Country',
+                text: 'Самые популярные месяцы',
                 position: 'top',
                 fontSize: 16,
                 padding: 20
@@ -41,7 +41,7 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        min: 75
+                        min: 0
                     }
                 }]
             }
@@ -50,13 +50,27 @@
 }
 
 function buildPieChart(type) {
-    ctx =  $('#' + type + '_chart').getContext('2d');
+    ctx =  document.getElementById(type + '_chart').getContext('2d');
+    var labelsArray = [], dataArray = [];
+    var header = "";
+    if(type == 'doughnut')
+    {
+        header = 'Самые просматриваемые фильмы';
+        labelsArray = ['Джанго освобождённый', 'Назад в будущее'];
+        dataArray = [30, 21];
+    }
+    else
+    {
+        header = 'Самые популярные кинотеатры';
+        labelsArray = ['Cinema Plaza', 'Movie One', 'El Movie'];
+        dataArray = [245, 389, 111];
+    }
     chart = new Chart(ctx, {
         type: type,
         data: {
-            labels: ['Dairy', 'Fruits', 'Lean meats', 'Vegetables', 'Whole grains'],
+            labels: labelsArray,
             datasets: [{
-                data: [27.92, 17.53, 14.94, 26.62, 12.99],
+                data: dataArray,
                 backgroundColor: ['#e91e63', '#00e676', '#ff5722', '#1e88e5', '#ffd600'],
                 borderWidth: 0.5 ,
                 borderColor: '#ddd'
@@ -65,7 +79,7 @@ function buildPieChart(type) {
         options: {
             title: {
                 display: true,
-                text: 'Recommended Daily Diet',
+                text: header,
                 position: 'top',
                 fontSize: 16,
                 fontColor: '#fff',

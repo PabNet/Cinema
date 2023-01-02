@@ -21,8 +21,15 @@
                         @foreach (var movie in @Model.Billboard)
                         {
                             <li>
-                            <img width="100px" src="@movie.Movie?.PosterUrl" alt="@movie.Movie?.RussianName"/><a href="/Movie/?movieId=@movie.Id">@movie.Movie?.RussianName</a><br/>
-                                @movie?.Movie?.ShortDescription
+                                <img width="100px" src="@movie.Movie?.PosterUrl" alt="@movie.Movie?.RussianName"/><a href="/Movie/?movieId=@movie.Id">@movie.Movie?.RussianName</a><br/>
+                                @movie?.Movie?.ShortDescription<br/>
+                                <div class="wrapper">
+                                    <a href="/MovieReview/?id=@movie.Id" class="link2">
+                                        <span>
+                                            <span>Оценить</span>
+                                        </span>
+                                    </a>
+                                </div>
                             </li>
                         }
                     </ul>

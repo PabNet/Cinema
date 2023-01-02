@@ -1,6 +1,18 @@
 ﻿@page
 @model Cinema.View.Pages.TicketingModel
 
+@functions
+{
+    public string ShowTime(DateTime? time) 
+    {
+        return ((DateTime)time).ToString("hh:mm:ss");
+    }
+    public string ShowDate(DateTime? date)
+    {
+        return ((DateTime)date).ToString("dd:MM:yyyy");
+    }
+}
+
 @{
     ViewData["Title"] = Model.Title;
 }
@@ -11,21 +23,21 @@
         <div class="border-left">
             <div class="inner">
                 <div class="address">
-                    <div class="fleft">
-                        <span>Кинотеатр: </span>Уборщик<br/>
-                        <span>Зал: </span>Уборщик<br/>
-                        <span>Фильм: </span>Уборщик<br/>
-                        <span>Дата: </span>от 500 р.<br/>
-                        <span>Время: </span>Григорий Лепс<br/>
+                    <div class="fleft" style="width: 30%">
+                        <span>Кинотеатр: </span>@Model?.MovieShow?.Cinema.Name (@Model.MovieShow.Cinema.Address)<br/>
+                        <span>Зал: </span>@Model?.MovieShow?.Hall?.Name (@Model.MovieShow.Hall.Number)<br/>
+                        <span>Фильм: </span>@Model?.MovieShow?.Movie?.Movie?.RussianName<br/>
+                        <span>Дата: </span>@ShowDate(Model?.MovieShow?.Date)<br/>
+                        <span>Время: </span>@ShowTime(Model?.MovieShow?.Time)<br/>
                     </div>
                     <div class="extra-wrap">
                         <div style="float: right" class='result'>
                         </div>
-                        <div style="margin-left: 15%" class='cinemaHall zal1'></div>
+                        <div class='cinemaHall zal1'></div>
                     </div>
                     <br/>
                     <div style="margin-left: 52" class="wrapper">
-                        <a href="#" class="link2">
+                        <a href="#"  onclick="issueTicket()" class="link2">
                             <span>
                                 <span class="button">Оформить</span>
                             </span>

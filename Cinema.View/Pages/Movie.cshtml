@@ -1,6 +1,18 @@
 ﻿@page
 @model Cinema.View.Pages.MovieModel
 
+@functions
+{
+    public string ShowTime(DateTime? time) 
+    {
+        return ((DateTime)time).ToString("hh:mm:ss");
+    }
+    public string ShowDate(DateTime? date)
+    {
+        return ((DateTime)date).ToString("dd:MM:yyyy");
+    }
+}
+
 @{
     ViewData["Title"] = Model.Title;
 }
@@ -60,24 +72,24 @@
                         <div style="display: inline">Good Review: @Model.Movie?.Movie?.RatingGoodReview (@Model.Movie?.Movie?.RatingGoodReviewVoteCount), Kinopoisk: @Model.Movie?.Movie?.Rating (@Model.Movie?.Movie?.RatingVoteCount), IMDb: @Model.Movie?.Movie?.RatingImdb (@Model.Movie?.Movie?.RatingImdbVoteCount), FilmCritics: @Model.Movie?.Movie?.RatingFilmCritics (@Model.Movie?.Movie?.RatingFilmCriticsVoteCount), RussianCritics: @Model.Movie?.Movie?.RatingRussianCritics (@Model.Movie?.Movie?.RatingRussianCriticsVoteCount), Await: @Model.Movie?.Movie?.RatingAwait (@Model.Movie?.Movie?.RatingAwaitVoteCount),</div><br/>
                         <span>Описание: </span>@Model.Movie?.Movie?.Description<br/>
                         <span>Трейлер: </span><iframe width="500" height="315" src="@Model.Movie?.Trailer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        @if (Model.Movie?.MovieShows?.Count == default)
+                        @if (Model.Movie?.Shows?.Count == default)
                         {
                             <span>Сеансов на данный момент нет</span><br/>
                         }
                         else
                         {
                             <span>Сеансы: </span><br/>
-                            @foreach (var movieDay in Model.Movie.MovieShows.GroupBy(m => m.Date))
+                            @foreach (var movieDay in Model.Movie.Shows.GroupBy(m => m.Date))
                             {
                                 <fieldset style="text-align: center; border: dotted">
-                                    <legend>@movieDay.Key</legend>
+                                    <legend>@ShowDate(movieDay.Key)</legend>
                                     @foreach (var movieShow in movieDay.GroupBy(m => m.Cinema.Name))
                                     {
                                         <span>@movieShow.Key:</span>
                                         <div>
                                             @foreach (var movieTime in movieDay.Where(m => m.Cinema.Name == movieShow.Key))
                                             {
-                                                @movieTime.Time
+                                                <a href="/Ticketing/?id=@movieTime.Id">@ShowTime(movieTime.Time)</a>
                                             }
                                         </div>
                                     }

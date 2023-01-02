@@ -47,9 +47,7 @@ namespace Cinema.Domain.Implementations
         public DbSet<MovieFormat> MovieFormats { get; } = null!;
         public DbSet<Page> Pages { get; } = null!;
 
-        public static void Main(string[] args)
-        {
-        }
+        
 
 
         private const string DbSection = "DB:",
@@ -123,5 +121,7 @@ namespace Cinema.Domain.Implementations
                 .WithMany(s => s.Halls)
                 .UsingEntity(j => j.ToTable(HallsInCinemasTableName));
         }
+
+        public static void Main(string[] args) { }
     }
 }

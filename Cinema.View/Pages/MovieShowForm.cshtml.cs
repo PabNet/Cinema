@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cinema.Common.Extensions;
 using Cinema.Domain.Abstractions;
+using Cinema.DTO.APIModels.MovieModel;
 using Cinema.DTO.InnerModels.CinemaAddressModel;
 using Cinema.DTO.InnerModels.CinemaHallModel;
 using Cinema.DTO.InnerModels.MovieFormatModel;
@@ -33,8 +35,26 @@ namespace Cinema.View.Pages
             }
         }
 
-        public IActionResult OnPost(MovieShow movieShow)
+        public IActionResult OnPost(string movie, string cinema, string hall, string format, string date, string time)
         {
+            var movieObject = _unitOfWork.MoviesBillboardRepository.Get(m => (m.Movie = m.MovieInfo.FromJson<Movie>()).RussianName == movie).FirstOrDefault();
+            
+            var cinemaObject = _unitOfWork.CinemaAddressRepository.Get(c => c.Name == cinema).FirstOrDefault();
+            var cinemaHallObject = _unitOfWork.CinemaHallRepository.Get(h => h.Name == hall).FirstOrDefault();
+            var movieFormatObject = _unitOfWork.MovieFormatRepository.Get(h => h.Name == format).FirstOrDefault();
+            DateTime.TryParse(date, out var dateShow);
+            DateTime.TryParse(time, out var timeShow);
+
+            var movieShow = new MovieShow
+            {
+                Cinema = cinemaObject,
+                Date = dateShow,
+                Time = timeShow,
+                Hall = cinemaHallObject,
+                Format = movieFormatObject,
+                Movie = movieObject
+            };
+
             if(MovieShowId != null)
             {
                 movieShow.Id = (Guid)MovieShowId;
@@ -44,6 +64,7 @@ namespace Cinema.View.Pages
             {
                 this._unitOfWork.MovieShowRepository.Create(movieShow);
             }
+            this._unitOfWork.Save();
             
             return RedirectToPage("/MovieShows");
         }
@@ -55,6 +76,10 @@ namespace Cinema.View.Pages
             Cinemas = this._unitOfWork.CinemaAddressRepository.Get().ToList();
             MovieFormats = this._unitOfWork.MovieFormatRepository.Get().ToList();
             MoviesBillboards = this._unitOfWork.MoviesBillboardRepository.Get().ToList();
+            foreach (var moviesBillboard in MoviesBillboards)
+            {
+                moviesBillboard.Movie = moviesBillboard.MovieInfo.FromJson<Movie>();
+            }
         }
 
         public override string Title { get; set; } = "Новый киносеанс";

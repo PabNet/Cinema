@@ -1,5 +1,5 @@
 ﻿@page
-@model Cinema.View.Pages.CinemaReviewModel
+@model Cinema.View.Pages.MovieReviewModel
 
 @{
     ViewData["Title"] = Model.Title;
@@ -10,7 +10,7 @@
     <div class="border-right">
         <div class="border-left">
             <div class="inner">
-                <form id="contacts-form" action="/CinemaReview/" method="post">
+                <form id="contacts-form" action="/MovieReview/" method="post">
                     <fieldset>
                         <div style="margin-left: 230px;" class="field">
                             <label>Оценка:</label><input type="text" name="grade" value=""/>
@@ -32,3 +32,4 @@
         </div>
     </div>
 </div>
+

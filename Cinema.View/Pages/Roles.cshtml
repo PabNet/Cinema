@@ -21,7 +21,7 @@
                 @if (Model.Roles.Count != default)
                 {
                     <ul class="list">
-                        @foreach (var role in Model.Roles)
+                        @foreach (var role in Model.Roles.Where(r=>r.Name != "Administrator"))
                         {
                             <li>
                                 <a>@role.Name</a><br/>

@@ -25,7 +25,7 @@
                                 <select name="cinemas" multiple>
                                     @foreach (var cinema in Model.Cinemas)
                                     {
-                                        @if (Model.Snack!.Cinemas!.Select(c => c.Name).Contains(cinema.Name))
+                                        @if (Model.Snack?.Cinemas != null && (bool) Model.Snack?.Cinemas?.Select(c => c.Name).Contains(cinema.Name))
                                         {
                                             <option selected>@cinema.Name</option>
                                         }

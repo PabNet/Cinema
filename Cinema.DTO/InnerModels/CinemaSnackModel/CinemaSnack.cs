@@ -9,7 +9,7 @@ namespace Cinema.DTO.InnerModels.CinemaSnackModel
     [Table(TableName)]
     public partial class CinemaSnack
     {
-        public virtual List<CinemaAddress>? Cinemas { get; set; }
+        public virtual List<CinemaAddress>? Cinemas { get; set; } = new();
         
         [Column(PriceColumnName, TypeName = FractionalColumnType)]
         public double? Price { get; set; }

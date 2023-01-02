@@ -11,16 +11,16 @@
         <div class="border-left">
             <div class="inner">
                 <h3 style="text-align: center">Личные <span>данные</span></h3>
-                <form id="contacts-form" action="">
+                <form id="contacts-form" action="/PersonalOffice/" method="post">
                     <fieldset>
                         <div style="margin-left: 230px;" class="field">
-                            <label style="margin-right: -45px;">Имя:</label><input type="text" name="name" value=""/>
+                            <label style="margin-right: -45px;">Имя:</label><input type="text" name="name" value="@Model?.Account?.Name"/>
                         </div>
                         <div style="margin-left: 230px;" class="field">
-                            <label style="margin-right: -45px;">Почта:</label><input type="text" name="email" value=""/>
+                            <label style="margin-right: -45px;">Почта:</label><input type="text" name="email" value="@Model?.Account?.Email"/>
                         </div>
                         <div style="margin-left: -95px;" class="wrapper">
-                            <a href="#" class="link2">
+                            <a href="#" onclick="$('#contacts-form').submit()" class="link2">
                                 <span>
                                     <span>Сохранить</span>
                                 </span>
@@ -32,16 +32,20 @@
                 <h3 style="text-align: center">Личная <span>статистика</span></h3>
                 <div class="address">
                     <div style="width: 60%; float: left">
-                        <span>Количество билетов: </span><div style="display: inline">0</div><br/>
-                        <span>Количество комментариев о кино: </span><div style="display: inline">0</div><br/>
-                        <span>Количество комментариев о кинотеатрах: </span><div style="display: inline">0</div><br/>
-                        <span>Количество откликов на вакансии: </span><div style="display: inline">0</div><br/>
-                        <span>Пройденное время с момента регистрации: </span><div style="display: inline">0</div><br/>
+                        <span>Количество билетов: </span><div style="display: inline">@Model?.TicketsCount</div><br/>
+                        <span>Количество комментариев о кино: </span><div style="display: inline">@Model?.MovieReviewsCount</div><br/>
+                        <span>Количество комментариев о кинотеатрах: </span><div style="display: inline">@Model?.CinemaReviewsCount</div><br/>
+                        <span>Пройденное время с момента регистрации: </span><div style="display: inline">@Model?.DaysInSite</div><br/>
                     </div>
                     <div class="extra-wrap">
-                        <span>Ваша роль: </span>18+<br/>
+                        <span>Ваша роль: </span>@Model?.RoleName<br/>
                         <span>Доступны страницы: </span>
-                        <div style="display: inline">Статистика, Заказ билета, Личный кабинет</div><br/>
+                        <div style="display: inline">
+                            @foreach (var webPage in Model.AccessPages)
+                            {
+                                @webPage.Name@:,
+                            }
+                        </div><br/>
                     </div>
                 </div>
             </div>
